@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.center {
+    text-align: center;
+    border: 2px solid green;
+    color:blue;
+}
+.form {
+    font-size: 10px;
+    color:#4CAF50;
+    padding:20px 20px;
+        
+}
+</style>
+<script>
+
+var str = "{{string}}"; 
+var history_list = str.split(";");
+ 
+onload = function ()
+{
+    var table = document.createElement("table");
+    var tbody = document.createElement("tbody");
+    table.appendChild(tbody);
+  
+    for (var i = 0; i < history_list.length; i++)
+    {
+        var tr = tbody.insertRow (tbody.rows.length);
+        var obj = history_list[i];
+        for (var p in obj)
+        {
+            var op = obj[p];
+            {
+                var td = tr.insertCell (tr.cells.length);
+                td.innerHTML = op;
+            }    
+        }
+    }
+    document.body.appendChild(table);
+}
+</script>
+</head>
+<body>
+<div class="center">
+<h1>Palindrome Checker</h1>
+<form class="form" action="/isPalindrome/" method="get">
+<input type="text" name="input_string" id="my_input" size="35" style="width:200px; height:25px;">
+<input type="submit" value="Check" style="font-size:25px; color:#4CAF50;"><br>
+</form>
+</div>
+<h2>History</h2>
+<p></p>
+</body>
+</html>
